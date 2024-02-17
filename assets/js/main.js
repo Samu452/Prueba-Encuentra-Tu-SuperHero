@@ -38,7 +38,7 @@ $(document).ready(function () {
 
   function mostrarHeroe(respuesta) {
     let heroeHTML = `
-      <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 30rem;">
         <img src="${respuesta.image.url}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Nombre: ${respuesta.name}</h5>
@@ -65,7 +65,6 @@ $(document).ready(function () {
   }
 
   function mostrarEstadisticas(datosXY) {
-    // Configuración de CanvasJS para un gráfico de torta
     let config = {
       animationEnabled: true,
       theme: "light1",
