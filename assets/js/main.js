@@ -42,7 +42,7 @@ $(document).ready(function () {
         <img src="${respuesta.image.url}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Nombre: ${respuesta.name}</h5>
-          <p class="card-text">Biografía: ${respuesta.biography["full-name"]}</p>
+          <p class="card-text">Nombre real: ${respuesta.biography["full-name"]}</p>
           <p class="card-text">Conexión: ${respuesta.connections["group-affiliation"]}</p>
           <p class="card-text">Altura: ${respuesta.appearance["height"][1]}</p>
           <p class="card-text">Peso: ${respuesta.appearance["weight"][1]}</p>
@@ -51,23 +51,19 @@ $(document).ready(function () {
           <p class="card-text">Género: ${respuesta.appearance["gender"]}</p>
           <p class="card-text">Origen: ${respuesta.biography["place-of-birth"]}</p>
           <p class="card-text">Primera aparición: ${respuesta.biography["first-appearance"]}</p>
+          
         </div>
       </div>`;
 
-    // Insertar el contenido en algún elemento del DOM (por ejemplo, un div con id "resultado")
     $("#resultado").html(heroeHTML);
-
-    // Agregamos las estadísticas de poder
     let datosXY = [];
     for (let key in respuesta.powerstats) {
       datosXY.push({ label: key, y: parseInt(respuesta.powerstats[key]) });
     }
 
-    // Mostramos las estadísticas utilizando CanvasJS
     mostrarEstadisticas(datosXY);
   }
 
-  // Función para mostrar las estadísticas de poder con CanvasJS
   function mostrarEstadisticas(datosXY) {
     // Configuración de CanvasJS para un gráfico de torta
     let config = {
@@ -87,10 +83,8 @@ $(document).ready(function () {
       ],
     };
 
-    // Crear el gráfico utilizando CanvasJS
     let chart = new CanvasJS.Chart("chartContainer", config);
 
-    // Renderizar el gráfico en el contenedor
     chart.render();
   }
 });
